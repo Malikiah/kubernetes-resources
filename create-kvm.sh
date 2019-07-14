@@ -3,6 +3,7 @@
 ram=2048
 allocatedSpace=10
 vCpus=2
+bridge=br0
 osType=linux
 graphics=none
 osLocation=http://gb.archive.ubuntu.com/ubuntu/dists/disco/main/installer-amd64/
@@ -44,6 +45,12 @@ if [ -n "$name" ] ;
                         if [ -n "$vCpusChange" ]
                             then
                             vCpus=$vCpusChange
+                        fi
+
+                        read -ep "  bridge [default = $bridge] = " bridge
+                        if [ -n "$bridgeChange" ]
+                            then
+                            bridge=$bridgeChange
                         fi
 
                         read -ep "  operating system type [default = $osType] = " osTypeChange
@@ -89,7 +96,7 @@ if [ -n "$name" ] ;
                 --vcpus $vCpus \
                 --os-type $osType  \
                 --os-variant ubuntu19.04 \
-                --network bridge:br0,model=virtio \
+                --network bridge:$bridge,model=virtio \
                 --graphics $graphics \
                 --console pty,target_type=serial \
                 --location $osLocation \
