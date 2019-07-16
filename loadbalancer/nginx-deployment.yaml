@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
-    name: nginx-deployment
+    name: nginx-loadbalancer-deployment
 spec:
     replicas: 1
     template:
@@ -9,9 +9,9 @@ spec:
             labels:
                 app: nginx
         spec:
-            nodeName: fra1-elliptic-node-01 
+            nodeName: fra1-elliptic-loadbalancer-01
             containers:
-            -   name: nginx
+            -   name: nginx-container
                 image: nginx
                 ports:
                 -   containerPort: 80

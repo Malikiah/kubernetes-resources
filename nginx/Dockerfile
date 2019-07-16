@@ -1,3 +1,3 @@
 FROM nginx:latest
-RUN mkdir -p /etc/nginx/sites-available && mkdir -p /etc/nginx/sites-enabled
-EXPOSE 80/tcp
+COPY ~/kubernetes-yaml-files/nginx/conf.d/* /etc/nginx/conf.d
+EXPOSE 80

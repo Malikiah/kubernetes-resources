@@ -1,11 +1,13 @@
+# Service - LoadBalancer
 apiVersion: v1
 kind: Service
 metadata:
     name: nginx-service
 spec:
-    nodeName: fra1-elliptic-node-01
+    nodeName: fra1-elliptic-loadbalancer-01
     selector:
         app: nginx
+    type: LoadBalancer
     ports:
     -   name: nginx-port
         port: 80
