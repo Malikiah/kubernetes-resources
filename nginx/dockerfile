@@ -2,7 +2,7 @@ FROM fedora:29
 
 MAINTAINER Damian Malikiah McCarthy
 
-VOLUME /etc/letsencrypt
+VOLUME letsencrypt:/etc/letsencrypt/live
 
 RUN dnf -y update && dnf -y install nginx && dnf -y install git
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
@@ -12,7 +12,7 @@ RUN echo nginx/conf.d > .git/info/sparse-checkout
 RUN git remote add origin -f https://github.com/Malikiah/kubernetes-resources.git
 RUN git pull origin master
 
-RUN rm -rf nginx .git && rm -rf nginx
+RUN rm -rf nginx .git 
 
 EXPOSE 80
 CMD ["nginx"]
