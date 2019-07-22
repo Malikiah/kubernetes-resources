@@ -11,4 +11,3 @@ spec:
     -   name: nginx-loadbalancer-port
         targetPort: 80
         port: 80
-        
