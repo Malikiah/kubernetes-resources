@@ -1,6 +1,6 @@
 # Service - LoadBalancer
 apiVersion: v1
-kind: Service
+kind: LoadBalancer
 metadata:
     name: nginx-loadbalancer-service
 spec:
@@ -9,4 +9,6 @@ spec:
         app: nginx-loadbalancer
     ports:
     -   name: nginx-loadbalancer-port
+        targetPort: 80
         port: 80
+        
