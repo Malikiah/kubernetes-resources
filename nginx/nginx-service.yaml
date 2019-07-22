@@ -3,6 +3,7 @@ kind: Service
 metadata:
     name: nginx-service
 spec:
+    type: nodePort
     nodeName: fra1-elliptic-node-01
     selector:
         app: nginx

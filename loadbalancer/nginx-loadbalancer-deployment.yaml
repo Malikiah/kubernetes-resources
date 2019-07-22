@@ -3,7 +3,7 @@ kind: Deployment
 metadata: 
     name: nginx-loadbalancer-deployment
 spec:
-    replicas: 1
+    replicas: 2
     selector:
       matchLabels:
         app: nginx
@@ -14,7 +14,7 @@ spec:
         spec:
             nodeName: fra1-elliptic-loadbalancer-01
             containers:
-            -   name: nginx-container
+            -   name: nginx-loadbalancer
                 image: malikiah-nginx
                 ports:
                 -   containerPort: 80
