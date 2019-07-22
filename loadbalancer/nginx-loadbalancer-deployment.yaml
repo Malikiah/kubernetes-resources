@@ -17,7 +17,7 @@ spec:
             -   name: nginx-loadbalancer
                 image: malikiah/malikiah-nginx
                 ports:
-                -   containerPort: 30080
+                -   containerPort: 80
                 livenessProbe:
                   httpGet:
                     path: /
