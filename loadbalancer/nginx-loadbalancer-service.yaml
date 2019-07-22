@@ -11,4 +11,3 @@ spec:
     -   name: nginx-loadbalancer-port
         targetPort: 30080
         port: 30080
-        nodePort: 80
