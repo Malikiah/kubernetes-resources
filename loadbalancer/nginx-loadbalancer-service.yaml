@@ -4,12 +4,11 @@ kind: Service
 metadata:
     name: nginx-loadbalancer-service
 spec:
-    nodeName: fra1-elliptic-loadbalancer-01
-    selector:
-        app: nginx
     type: LoadBalancer
+    selector:
+        app: nginx-loadbalancer
     ports:
-    -   name: nginx-port
+    -   name: nginx-loadbalancer-port
         targetPort: 80
         port: 80
         nodePort: 80

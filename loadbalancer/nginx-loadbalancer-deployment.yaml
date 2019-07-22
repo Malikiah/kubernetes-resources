@@ -15,7 +15,7 @@ spec:
             nodeName: fra1-elliptic-loadbalancer-01
             containers:
             -   name: nginx-loadbalancer
-                image: malikiah-nginx
+                image: malikiah/malikiah-nginx
                 ports:
                 -   containerPort: 80
                 livenessProbe:
