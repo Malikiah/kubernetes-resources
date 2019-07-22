@@ -1,10 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
+
+metadata:
+
+  name: mariadb-deployment
+
+  labels:
+    app: mariadb
+
 spec: 
+
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: mariadb
+
   template:
+    
+    metadata:
+      labels:
+        app: mariadb
+    
     spec:
       containers:
-        - name: maria-db
+      -   name: maria-db
           image: mariadb:latest
           ports:
             - containerPort: 3306
@@ -12,6 +32,7 @@ spec:
             - --transaction-isolation=READ-COMMITTED
             - --binlog-format=ROW
             - --max-connections=1000
+
           env:
             - name: MYSQL_DATABASE
               valueFrom:
@@ -21,9 +42,12 @@ spec:
           
           volumeMounts:
             - mountPath: /var/lib/mysql
-              name: db-persistent-storage
+              name: mariadb-persistent-storage
+
         restartPolicy: Always
+        
         volumes:
-          - name: db-persistent-storage
+          - name: mariadb-persistent-storage
             persistentVolumeClaim:
-    claimName: db-pvc
+
+    claimName: mariadb-pvc

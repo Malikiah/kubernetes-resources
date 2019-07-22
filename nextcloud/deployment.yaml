@@ -1,24 +1,40 @@
 apiVersion: apps/v1
 kind: Deployment
+
+metadata:
+  name: nexcloud-deployment
+  labels:
+    app: nextcloud
+
 spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nextcloud
+
   template:
     spec:
       containers:
-        - image: nextcloud:nginx
-          name: app
+      -   name: nextcloud
+          image: nextcloud:fpm
+
           ports:
-            - containerPort: 80
+            - containerPort: 9000
+
           env:
             - name: MYSQL_DATABASE
               valueFrom:
                 secretKeyRef:
                   key: MYSQL_DATABASE
                   name: db-secrets
+
           volumeMounts:
-            - mountPath: /var/www/html/nextcloud
-              name: app-persistent-storage
+            - mountPath: /home/malikiah/public_html/nextcloud
+              name: nextcloud-persistent-storage
+
       restartPolicy: Always
+
       volumes:
-        - name: app-persistent-storage
+      -   name: nextcloud-persistent-storage
           persistentVolumeClaim:
-            claimName: app-pvc
+            claimName: nextcloud-pvc

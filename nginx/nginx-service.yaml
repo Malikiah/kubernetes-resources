@@ -8,4 +8,6 @@ spec:
         app: nginx
     ports:
     -   name: nginx-port
+        nodeport: 30080
         port: 80
+        targetport: 80
