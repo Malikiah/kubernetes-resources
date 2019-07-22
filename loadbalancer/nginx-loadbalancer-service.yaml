@@ -9,5 +9,5 @@ spec:
         app: nginx-loadbalancer
     ports:
     -   name: nginx-loadbalancer-port
-        targetPort: 30080
+        
         port: 80
