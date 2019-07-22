@@ -9,5 +9,4 @@ spec:
         app: nginx-loadbalancer
     ports:
     -   name: nginx-loadbalancer-port
-        
         port: 80
