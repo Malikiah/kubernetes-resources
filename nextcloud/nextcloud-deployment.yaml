@@ -15,26 +15,26 @@ spec:
   template:
     spec:
       containers:
-      -   name: nextcloud
-        image: nextcloud:fpm
+        - name: nextcloud
+          image: nextcloud:fpm
 
         ports:
-        -   containerPort: 9000
+          - containerPort: 9000
 
         env:
-        -   name: MYSQL_DATABASE
-            valueFrom:
-              secretKeyRef:
-                key: MYSQL_DATABASE
-                name: db-secrets
+          - name: MYSQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  key: MYSQL_DATABASE
+                  name: db-secrets
 
         volumeMounts:
-        -   mountPath: /home/malikiah/public_html/nextcloud
-          name: nextcloud-persistent-storage
+          - mountPath: /home/malikiah/public_html/nextcloud
+            name: nextcloud-persistent-storage
 
       restartPolicy: Always
 
       volumes:
-      -   name: nextcloud-persistent-storage
+        - name: nextcloud-persistent-storage
           persistentVolumeClaim:
             claimName: nextcloud-pvc
