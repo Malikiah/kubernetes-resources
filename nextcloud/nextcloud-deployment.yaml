@@ -18,19 +18,19 @@ spec:
       -   name: nextcloud
           image: nextcloud:fpm
 
-        ports:
-        -   containerPort: 9000
+          ports:
+          -   containerPort: 9000
 
-        env:
-        -   name: MYSQL_DATABASE
-              valueFrom:
-                secretKeyRef:
-                  key: MYSQL_DATABASE
-                  name: db-secrets
+          env:
+          -   name: MYSQL_DATABASE
+                valueFrom:
+                  secretKeyRef:
+                    key: MYSQL_DATABASE
+                    name: db-secrets
 
-        volumeMounts:
-        -   mountPath: /home/malikiah/public_html/nextcloud
-            name: nextcloud-persistent-storage
+          volumeMounts:
+          -   mountPath: /home/malikiah/public_html/nextcloud
+              name: nextcloud-persistent-storage
 
       restartPolicy: Always
 
