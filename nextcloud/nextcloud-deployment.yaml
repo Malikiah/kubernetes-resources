@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: nexcloud-deployment
+  name: nextcloud-deployment
   labels:
     app: nextcloud
 
@@ -12,12 +12,27 @@ spec:
     matchLabels:
       app: nextcloud
   template:
+    metadata:
+      labels:
+        app: nextcloud
     spec:
+      nodeName: fra1-elliptic-node-01
       containers:
       -   name: nextcloud
           image: nextcloud:fpm
-          ports:
-          -   containerPort: 9000
+          
+          livenessProbe:
+              httpGet:
+                path: /
+                port: 9000
+              initialDelaySeconds: 30
+              periodSeconds: 30
+            readinessProbe:
+              httpGet:
+                path: /
+                port: 9000
+              initialDelaySeconds: 15
+              periodSeconds: 3
           env:
           -   name: MYSQL_DATABASE
                 valueFrom:
