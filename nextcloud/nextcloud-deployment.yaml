@@ -20,30 +20,17 @@ spec:
       containers:
       -   name: nextcloud
           image: nextcloud:fpm
-          
-          livenessProbe:
-              httpGet:
-                path: /
-                port: 9000
-              initialDelaySeconds: 30
-              periodSeconds: 30
-            readinessProbe:
-              httpGet:
-                path: /
-                port: 9000
-              initialDelaySeconds: 15
-              periodSeconds: 3
-          env:
-          -   name: MYSQL_DATABASE
-                valueFrom:
-                  secretKeyRef:
-                    key: MYSQL_DATABASE
-                    name: db-secrets
-          volumeMounts:
-          -   mountPath: /home/malikiah/public_html/nextcloud
-              name: nextcloud-persistent-storage
-      restartPolicy: Always
-      volumes:
-      -   name: nextcloud-persistent-storage
-          persistentVolumeClaim:
-            claimName: nextcloud-pvc
+          ports:
+          -   containerPort: 9000
+          #livenessProbe:
+          #    httpGet:
+          #      path: /
+          #      port: 9000
+          #    initialDelaySeconds: 30
+          #    periodSeconds: 30
+          #  readinessProbe:
+          #    httpGet:
+          #      path: /
+          #      port: 9000
+          #    initialDelaySeconds: 15
+          #    periodSeconds: 3
