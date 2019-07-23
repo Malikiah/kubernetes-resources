@@ -19,7 +19,7 @@ spec:
       nodeName: fra1-elliptic-node-01
       containers:
       -   name: nextcloud
-          image: nextcloud:apache
+          image: nextcloud:fpm
           ports:
           -   containerPort: 9000
           #livenessProbe:
