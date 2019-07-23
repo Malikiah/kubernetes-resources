@@ -6,13 +6,10 @@ metadata:
 
 spec:
   type: NodePort
-  ports:
-    -   targetPort: 9000
-        port: 9000
-        nodePort: 39000
-
   selector:
     app: nextcloud
-    type: frontend
-
-  component: nextcloud
+  ports:
+  -   name: nextcloud-port
+      targetPort: 9000
+      port: 9000
+      nodePort: 39000
