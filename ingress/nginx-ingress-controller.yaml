@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+
+metadata:
+  name: nginx-ingress
+
+spec:
+  rules:
+  - host: cloud.malikiah.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: nextcloud
+          servicePort: 30009
+    

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: nginx-ingress-service
+
+spec:
+  type: NodePort
+  ports:
+  - targetPort: 30080
+    port: 30080
+    nodePort: 80
+
+  Selector:
+    app: nginx-ingress-controller
