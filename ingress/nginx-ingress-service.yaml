@@ -7,7 +7,7 @@ metadata:
     app: nginx-ingress-controller
 
 spec:
-  type: 'LoadBalancer'
+  type: 'NodePort'
 
   selector:
     app: nginx-ingress-controller
@@ -16,6 +16,8 @@ spec:
   - name: http
     port: 80
     targetPort: http
+    NodePort: 80
   - name: https
     port: 443
     targetPort: https
+    NodePort: 443
