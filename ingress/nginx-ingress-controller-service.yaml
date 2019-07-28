@@ -11,7 +11,7 @@ spec:
     app: nginx-ingress-controller
 
   ports:
-  - nginx-ingress-port
+  - name: nginx-ingress-port
     targetPort: 30080
     port: 30080
     nodePort: 80
