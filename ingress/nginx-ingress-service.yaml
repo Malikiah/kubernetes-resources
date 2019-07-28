@@ -14,10 +14,10 @@ spec:
 
   ports:
   - name: http
-    port: 80
+    port: 30080
     targetPort: http
     nodePort: 80
   - name: https
-    port: 443
+    port: 30443
     targetPort: https
     nodePort: 443
