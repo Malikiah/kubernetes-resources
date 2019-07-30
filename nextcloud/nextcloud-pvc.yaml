@@ -7,8 +7,11 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-    
+  PersistentVolumeClaimPolicy: Retain
+
   resources:
     requests:
-
-  storage: 500Gi
+  capacity:
+    storage: 500Gi
+  hostPath:
+    path: /var/ww/html/nextcloud

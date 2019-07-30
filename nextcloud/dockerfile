@@ -1,0 +1,31 @@
+FROM fedora:29
+
+MAINTAINER Damian Malikiah McCarthy
+
+VOLUME letsencrypt:/etc/letsencrypt/live
+
+RUN dnf -y update && dnf -y install nginx && dnf -y install git
+
+RUN dnf -y install php php-cli php-fpm php-mysqlnd php-zip php-devel php-gd php-mcrypt php-mbstring php-curl php-xml php-pear php-bcmath php-json
+
+RUN dnf -y install wget
+
+RUN wget https://download.nextcloud.com/server/releases/nextcloud-16.0.3.tar.bz2 && mkdir -p /var/www/html/nextcloud && tar -xvf nextcloud-16.0.3.tar.bz2 -C /var/www/html/nextcloud && chown www-data:www-data /var/www/html/nextcloud/nextcloud && mkdir -p /var/www/html/nextcloud/nextcloud-data
+
+
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+RUN git init
+RUN git config core.sparsecheckout true
+RUN echo nginx/conf.d/cloud.malikiah.io > .git/info/sparse-checkout
+RUN git remote add origin -f https://github.com/Malikiah/kubernetes-resources.git
+RUN git pull origin master
+
+RUN mv cloud.malikiah.io /etc/nginx/conf.d
+
+RUN rm -rf .git 
+
+EXPOSE 80
+CMD ["php-fpm"]
+CMD ["nginx"]
+
+

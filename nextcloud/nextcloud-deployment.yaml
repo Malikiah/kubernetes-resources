@@ -22,15 +22,16 @@ spec:
           image: nextcloud:fpm
           ports:
           -   containerPort: 9000
-          #livenessProbe:
-          #    httpGet:
-          #      path: /
-          #      port: 9000
-          #    initialDelaySeconds: 30
-          #    periodSeconds: 30
-          #  readinessProbe:
-          #    httpGet:
-          #      path: /
-          #      port: 9000
-          #    initialDelaySeconds: 15
-          #    periodSeconds: 3
+          livenessProbe:
+              httpGet:
+                path: /
+                port: 80
+              initialDelaySeconds: 30
+              periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 3
+      restartPolicy: Always
