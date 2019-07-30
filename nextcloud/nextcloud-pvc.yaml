@@ -14,4 +14,4 @@ spec:
   capacity:
     storage: 500Gi
   hostPath:
-    path: /var/ww/html/nextcloud
+    path: /var/www/html/nextcloud
