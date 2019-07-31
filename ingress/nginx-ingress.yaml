@@ -11,7 +11,7 @@ spec:
       http:
         paths:
           - backend:
-              serviceName: exampleService
-              servicePort: 80
+              serviceName: nextcloud
+              servicePort: 9000
             path: /
   
