@@ -1,0 +1,13 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: nginx-ingress-controller-network-policy
+  labels:
+    app: nginx-ingress-controller
+spec:
+  podSelector:
+    matchLabels:
+      app: nginx-ingress-controller
+  ingress:
+  - {}
+  
