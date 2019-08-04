@@ -2,17 +2,17 @@ FROM fedora:29
 
 MAINTAINER Damian Malikiah McCarthy
 
-VOLUME letsencrypt:/etc/letsencrypt/live
+RUN dnf -y update && dnf -y install nginx && dnf -y install libcurl
 
-RUN dnf -y update && dnf -y install nginx && dnf -y install git
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
-RUN git init
-RUN git config core.sparsecheckout true
-RUN echo nginx/conf.d > .git/info/sparse-checkout
-RUN git remote add origin -f https://github.com/Malikiah/kubernetes-resources.git
-RUN git pull origin master
 
-RUN rm -rf nginx .git 
+#RUN git init
+#RUN git config core.sparsecheckout true
+#RUN echo nginx/conf.d > .git/info/sparse-checkout
+#RUN git remote add origin -f https://github.com/Malikiah/kubernetes-resources.git
+#RUN git pull origin master
+
+RUN curl https://github.com/Malikiah/kubernetes-resources/tree/master/nginx/conf.d/nginx-proxy.conf > /etc/nginx/conf.d/nginx-proxy.conf
 
 EXPOSE 80
 CMD ["nginx"]

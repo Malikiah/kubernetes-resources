@@ -12,10 +12,9 @@ spec:
         labels:
             app: nginx
       spec:
-        nodeName: fra1-elliptic-node-01
         containers:
         -   name: nginx
-            image: malikiah/malikiah-nginx
+            image: malikiah/nginx-proxy
             ports:
             -   containerPort: 80
             livenessProbe:
