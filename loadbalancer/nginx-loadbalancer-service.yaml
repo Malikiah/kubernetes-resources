@@ -1,13 +1,14 @@
 # Service - LoadBalancer
 apiVersion: v1
-kind: LoadBalancer
+kind: Service
 metadata:
     name: nginx-loadbalancer-service
 spec:
-    type: LoadBalancer
+    type: NodePort
     selector:
         app: nginx-loadbalancer
     ports:
     -   name: nginx-loadbalancer-port
         targetPort: 80
         port: 80
+        nodePort: 300080

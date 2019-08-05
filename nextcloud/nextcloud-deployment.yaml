@@ -16,12 +16,12 @@ spec:
       labels:
         app: nextcloud
     spec:
-      nodeName: fra1-elliptic-node-01
+
       containers:
       -   name: nextcloud
           image: malikiah/nextcloud:latest
           ports:
-          -   containerPort: 9000
+          -   containerPort: 30009
           livenessProbe:
               httpGet:
                 path: /
