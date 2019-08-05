@@ -4,11 +4,20 @@ MAINTAINER Damian Malikiah McCarthy
 
 RUN dnf -y clean all && dnf -y update --releasever=29
 
-RUN dnf -y install nginx libcurl
+RUN dnf -y install nginx git
 
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
-RUN curl https://github.com/Malikiah/kubernetes-resources/tree/master/nginx/conf.d/nginx-proxy.conf > /etc/nginx/conf.d/nginx-proxy.conf
+RUN git init
+RUN git config core.sparsecheckout true
+RUN echo nginx/conf.d > .git/info/sparse-checkout
+RUN git remote add origin -f https://github.com/Malikiah/kubernetes-resources.git
+RUN git pull origin master
+
+RUN mv ./nginx/conf.d/nginx-proxy.conf /etc/nginx/conf.d
+
+RUN rm -rf nginx .git
+
 
 EXPOSE 80
 CMD ["nginx"]
