@@ -17,4 +17,4 @@ MAINTAINER Damian Malikiah McCarthy
 #RUN curl https://github.com/Malikiah/kubernetes-resources/tree/master/nginx/conf.d/nginx-proxy.conf > /etc/nginx/conf.d/nginx-proxy.conf
 
 EXPOSE 80
-CMD ["nginx"]
+#CMD ["nginx"]
