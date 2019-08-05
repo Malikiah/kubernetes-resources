@@ -2,9 +2,11 @@ FROM fedora:29
 
 MAINTAINER Damian Malikiah McCarthy
 
-RUN dnf -y update && dnf -y install nginx && dnf -y install libcurl
+#RUN dnf -y clean all && dnf -y update --releasever=29
 
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+#RUN yum -y install nginx libcurl
+
+#RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
 #RUN git init
 #RUN git config core.sparsecheckout true
@@ -12,7 +14,7 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 #RUN git remote add origin -f https://github.com/Malikiah/kubernetes-resources.git
 #RUN git pull origin master
 
-RUN curl https://github.com/Malikiah/kubernetes-resources/tree/master/nginx/conf.d/nginx-proxy.conf > /etc/nginx/conf.d/nginx-proxy.conf
+#RUN curl https://github.com/Malikiah/kubernetes-resources/tree/master/nginx/conf.d/nginx-proxy.conf > /etc/nginx/conf.d/nginx-proxy.conf
 
 EXPOSE 80
 CMD ["nginx"]
