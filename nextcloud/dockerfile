@@ -20,7 +20,7 @@ RUN echo nginx/conf.d > .git/info/sparse-checkout
 RUN git remote add origin -f https://github.com/Malikiah/kubernetes-resources.git
 RUN git pull origin master
 
-RUN mv ./nginx/conf.d/cloud.malikiah.io.conf /etc/nginx/conf.d
+RUN cp -r ./nginx/conf.d/cloud.malikiah.io.conf /etc/nginx/conf.d
 
 RUN rm -rf nginx .git
 
