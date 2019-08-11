@@ -22,7 +22,7 @@ spec:
           imagePullPolicy: Always
           image: malikiah/nextcloud:latest
           ports:
-          -   containerPort: 30009
+          -   containerPort: 80
           livenessProbe:
               httpGet:
                 path: /
