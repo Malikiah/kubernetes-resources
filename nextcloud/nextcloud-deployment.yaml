@@ -20,7 +20,7 @@ spec:
       containers:
       -   name: nextcloud
           imagePullPolicy: Always
-          image: malikiah/nextcloud:latest
+          image: malikiah/nextcloud
           ports:
           -   containerPort: 30009
           livenessProbe:
