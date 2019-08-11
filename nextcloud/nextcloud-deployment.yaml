@@ -34,4 +34,5 @@ spec:
               port: 80
             initialDelaySeconds: 15
             periodSeconds: 3
+          imagePullPolicy: Always
       restartPolicy: Always
