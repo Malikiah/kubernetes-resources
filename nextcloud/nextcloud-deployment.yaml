@@ -19,6 +19,7 @@ spec:
 
       containers:
       -   name: nextcloud
+          imagePullPolicy: Always
           image: malikiah/nextcloud:latest
           ports:
           -   containerPort: 30009
@@ -34,5 +35,5 @@ spec:
               port: 80
             initialDelaySeconds: 15
             periodSeconds: 3
-          imagePullPolicy: Always
+    
       restartPolicy: Always
