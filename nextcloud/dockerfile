@@ -24,7 +24,7 @@ RUN cp -r ./nginx/conf.d/cloud.malikiah.io.conf /etc/nginx/conf.d
 
 RUN rm -rf nginx .git
 
-EXPOSE 30009
+EXPOSE 80
 CMD ["php-fpm"]
 CMD ["nginx"]
 

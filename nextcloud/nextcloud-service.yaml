@@ -10,5 +10,5 @@ spec:
     app: nextcloud
   ports:
   -   name: nextcloud-port
-      targetPort: 30009
+      targetPort: 80
       port: 30009
