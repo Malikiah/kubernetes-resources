@@ -22,6 +22,8 @@ RUN git pull origin master
 
 RUN cp -r ./nginx/conf.d/cloud.malikiah.io.conf /etc/nginx/conf.d
 
+RUN sed -i 's/types_hash_max_size 2048;/types_hash_max_size 4096;/' /etc/nginx/nginx.conf
+
 RUN rm -rf nginx .git
 
 EXPOSE 80
