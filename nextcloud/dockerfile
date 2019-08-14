@@ -26,7 +26,8 @@ RUN mkdir -p /var/run/php
 
 RUN sed -i 's/types_hash_max_size 2048;/types_hash_max_size 4096;/' /etc/nginx/nginx.conf
 
-RUN sed -i 's/listen = /var/run/php/php7.2-fpm.sock' /etc/php-fpm.d/www.conf
+RUN sed -i 's:listen = /run/php-fpm/www.sock:listen = /var/run/php/php7.2-fpm.sock:' /etc/php-fpm.d/www.conf
+
 
 RUN rm -rf nginx .git
 
