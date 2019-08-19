@@ -44,9 +44,10 @@ spec:
             - mountPath: /var/lib/mysql
               name: mariadb-persistent-storage
 
-        restartPolicy: Always
-        
-        volumes:
+          volumes:
           - name: mariadb-persistent-storage
             persistentVolumeClaim:
               claimName: mariadb-pvc
+              
+      restartPolicy: Always
+        
