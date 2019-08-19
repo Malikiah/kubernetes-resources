@@ -42,11 +42,11 @@ spec:
           
           volumeMounts:
             - mountPath: /var/lib/mysql
-              name: mariadb-persistent-storage
+              name: mariadb-persistent-volume
 
           
       volumes:
-          - name: mariadb-persistent-storage
+          - name: mariadb-persistent-volume
             persistentVolumeClaim:
               claimName: mariadb-pvc
 

@@ -39,4 +39,9 @@ spec:
           - mountPath: "/var/www/html/nextcloud"
             name: nextcloud-pvc
 
+      volumes:
+          - name: nextcloud-persistent-volume
+            persistentVolumeClaim:
+              claimName: nextcloud-pvc
+
       restartPolicy: Always
