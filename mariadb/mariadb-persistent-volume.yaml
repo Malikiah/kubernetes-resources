@@ -8,7 +8,9 @@ spec:
   storageClassName: manual
   capacity:
     storage: 100Gi
+    
   accessModes:
     - ReadWriteOnce
+
   hostPath:
     path: "/var/www/html/nextcloud"

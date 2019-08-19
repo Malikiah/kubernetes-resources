@@ -5,13 +5,10 @@ metadata:
   name: nextcloud-pvc
 
 spec:
+
   accessModes:
     - ReadWriteOnce
-  PersistentVolumeClaimPolicy: Retain
 
   resources:
     requests:
-  capacity:
-    storage: 500Gi
-  hostPath:
-    path: "/var/www/html/nextcloud"
+      storage: 500Gi
