@@ -41,7 +41,7 @@ spec:
                   name: mariadb-secrets
           
           volumeMounts:
-            - mountPath: /var/lib/mysql
+            - mountPath: "/var/lib/mysql"
               name: mariadb-persistent-volume
 
           

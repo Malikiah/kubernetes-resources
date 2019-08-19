@@ -37,7 +37,7 @@ spec:
             periodSeconds: 3
           volumeMounts:
           - mountPath: "/var/www/html/nextcloud"
-            name: mariadb-persistent-volume
+            name: nextcloud-persistent-volume
 
       volumes:
           - name: nextcloud-persistent-volume
