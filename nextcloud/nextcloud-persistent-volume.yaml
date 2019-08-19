@@ -6,7 +6,7 @@ metadata:
     type: local
     
 spec:
-  storageClassName: manua
+  storageClassName: manual
   capacity:
     storage: 500Gi
 
