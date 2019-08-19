@@ -34,10 +34,10 @@ spec:
             - --max-connections=1000
 
           env:
-            - name: MYSQL_DATABASE
+            - name: nextcloud_db
               valueFrom:
                 secretKeyRef:
-                  key: MYSQL_DATABASE
+                  key: nextcloud_db
                   name: mariadb-secrets
           
           volumeMounts:
