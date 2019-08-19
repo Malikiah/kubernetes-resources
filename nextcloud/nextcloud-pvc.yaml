@@ -5,7 +5,7 @@ metadata:
   name: nextcloud-pvc
 
 spec:
-
+  storageClassName: manual
   accessModes:
     - ReadWriteOnce
 
