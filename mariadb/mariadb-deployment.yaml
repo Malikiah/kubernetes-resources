@@ -24,8 +24,8 @@ spec:
     
     spec:
       containers:
-      -   name: maria-db
-          image: mariadb:latest
+      -   name: mariadb
+          image: mariadb/server:latest
           ports:
             - containerPort: 3306
           args:
@@ -49,6 +49,6 @@ spec:
           - name: mariadb-persistent-storage
             persistentVolumeClaim:
               claimName: mariadb-pvc
-              
+
       restartPolicy: Always
         
