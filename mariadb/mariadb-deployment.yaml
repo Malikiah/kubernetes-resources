@@ -38,7 +38,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   key: MYSQL_DATABASE
-                  name: db-secrets
+                  name: mariadb-secrets
           
           volumeMounts:
             - mountPath: /var/lib/mysql
