@@ -5,7 +5,7 @@ metadata:
   name: mariadb-pvc
 
 spec:
-
+  storageClassName: manual
   accessModes:
     - ReadWriteOnce
 
