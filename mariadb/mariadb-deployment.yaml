@@ -37,7 +37,19 @@ spec:
             - name: nextcloud_db
               valueFrom:
                 secretKeyRef:
-                  key: nextcloud_db
+                  key: MARIADB_DATABASE
+                  name: mariadb-secrets
+              valueFrom:
+                secretKeyRef:
+                  key: MARIADB_USER
+                  name: mariadb-secrets
+              valueFrom:
+                secretKeyRef:
+                  key: MARIADB_PASSWORD
+                  name: mariadb-secrets
+              valueFrom:
+                secretKeyRef:
+                  key: MARIADB_ROOT_PASSWORD
                   name: mariadb-secrets
           
           volumeMounts:
