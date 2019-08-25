@@ -47,7 +47,7 @@ spec:
             - name: MARIADB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  key: MARIADB_PASSWORD
+                  key: MARIADB_NEXTCLOUD_PASSWORD
                   name: mariadb-secrets
             - name: password
               valueFrom:
