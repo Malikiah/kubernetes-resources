@@ -39,12 +39,12 @@ spec:
                 secretKeyRef:
                   key: MARIADB_NEXTCLOUD_DATABASE
                   name: mariadb-secrets
-            - name: MARIADB_USER
+            - name: MARIADB_NEXTCLOUD_USER
               valueFrom:
                 secretKeyRef:
                   key: MARIADB_NEXTCLOUD_USER
                   name: mariadb-secrets
-            - name: MARIADB_PASSWORD
+            - name: MARIADB_NEXTCLOUD_PASSWORD
               valueFrom:
                 secretKeyRef:
                   key: MARIADB_NEXTCLOUD_PASSWORD
