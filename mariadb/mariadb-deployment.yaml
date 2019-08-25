@@ -39,14 +39,17 @@ spec:
                 secretKeyRef:
                   key: MARIADB_DATABASE
                   name: mariadb-secrets
+            - name: nextcloud_db_user
               valueFrom:
                 secretKeyRef:
                   key: MARIADB_USER
                   name: mariadb-secrets
+            - name: nextcloud_db_password
               valueFrom:
                 secretKeyRef:
                   key: MARIADB_PASSWORD
                   name: mariadb-secrets
+            - name: mariadb_root_db
               valueFrom:
                 secretKeyRef:
                   key: MARIADB_ROOT_PASSWORD
