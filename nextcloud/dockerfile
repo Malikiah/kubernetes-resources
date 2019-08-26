@@ -36,7 +36,9 @@ RUN sed -i 's:listen = /run/php-fpm/www.sock:listen = /var/run/php/php7.2-fpm.so
 
 RUN rm -rf nginx .git
 
+RUN php-fpm
+
 EXPOSE 80
-CMD ["/usr/bin/supervisord"]
+CMD ["nginx]
 
 
