@@ -34,25 +34,10 @@ spec:
             - --max-connections=1000
 
           env:
-            - name: MARIADB_NEXTCLOUD_DATABASE
+            - name: MARIADB_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  key: MARIADB_NEXTCLOUD_DATABASE
-                  name: mariadb-secrets
-            - name: MARIADB_NEXTCLOUD_USER
-              valueFrom:
-                secretKeyRef:
-                  key: MARIADB_NEXTCLOUD_USER
-                  name: mariadb-secrets
-            - name: MARIADB_NEXTCLOUD_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  key: MARIADB_NEXTCLOUD_PASSWORD
-                  name: mariadb-secrets
-            - name: password
-              valueFrom:
-                secretKeyRef:
-                  key: MARIADB_ROOT_PASSWORD
+                  key: password
                   name: mariadb-secrets
           
           volumeMounts:

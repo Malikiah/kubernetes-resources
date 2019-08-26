@@ -1,6 +1,6 @@
 FROM fedora:29
 
-MAINTAINER Damian Malikiah McCarthy
+LABEL Damian Malikiah McCarthy
 
 RUN dnf -y clean all && dnf -y update --releasever=29
 
