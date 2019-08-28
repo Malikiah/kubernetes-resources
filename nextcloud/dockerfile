@@ -38,6 +38,6 @@ RUN rm -rf nginx .git
 
 
 EXPOSE 80
-CMD ["/usr/bin/supervisord"]
+CMD ["nginx"]
 
 
