@@ -22,19 +22,8 @@ spec:
           imagePullPolicy: Always
           image: bitnami/php-fpm:7.2
           ports:
-          -   containerPort: 80
-          livenessProbe:
-              httpGet:
-                path: /
-                port: 80
-              initialDelaySeconds: 30
-              periodSeconds: 30
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 80
-            initialDelaySeconds: 15
-            periodSeconds: 3
+          -   containerPort: 9000
+        
           volumeMounts:
           - mountPath: "/var/www/html/nextcloud"
             name: nextcloud-persistent-volume
