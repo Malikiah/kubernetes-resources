@@ -16,6 +16,8 @@ RUN git pull origin master
 
 RUN mv ./nginx/conf.d/nginx-proxy.conf /etc/nginx/conf.d
 
+RUN sed -i 's/types_hash_max_size 2048;/types_hash_max_size 4096;/' /etc/nginx/nginx.conf
+
 RUN rm -rf nginx .git
 
 
