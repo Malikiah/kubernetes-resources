@@ -20,7 +20,7 @@ spec:
       containers:
       -   name: php-fpm
           imagePullPolicy: Always
-          image: malikiah/php7.2-fpm
+          image: bitnami/php-fpm:7.2
           ports:
           -   containerPort: 9000
         
