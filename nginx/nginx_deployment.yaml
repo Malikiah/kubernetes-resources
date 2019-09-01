@@ -34,4 +34,13 @@ spec:
               port: 80
             initialDelaySeconds: 15
             periodSeconds: 3
+            volumeMounts:
+          - mountPath: "/var/www/html/nextcloud"
+            name: nextcloud-persistent-volume
+
+      volumes:
+          - name: nextcloud-persistent-volume
+            persistentVolumeClaim:
+              claimName: nextcloud-pvc
+              
       restartPolicy: Always
