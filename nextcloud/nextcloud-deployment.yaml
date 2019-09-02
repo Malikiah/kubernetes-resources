@@ -41,7 +41,7 @@ spec:
             
       -   name: php-fpm
           imagePullPolicy: Always
-          image: bitnami/php-fpm:7.2
+          image: malikiah/php7.2-fpm:latest
           ports:
           -   containerPort: 9000
           volumeMounts:
