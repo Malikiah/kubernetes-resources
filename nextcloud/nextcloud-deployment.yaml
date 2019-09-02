@@ -38,16 +38,6 @@ spec:
           volumeMounts:
           - mountPath: "/var/www/html/nextcloud"
             name: nextcloud-persistent-volume
-            
-      -   name: php-fpm
-          imagePullPolicy: Always
-          image: bitnami/php-fpm:7.2
-          ports:
-          -   containerPort: 9000
-        
-          volumeMounts:
-          - mountPath: "/var/www/html/nextcloud"
-            name: nextcloud-persistent-volume
 
       volumes:
           - name: nextcloud-persistent-volume
