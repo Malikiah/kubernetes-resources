@@ -21,6 +21,7 @@ spec:
       -   name: php-fpm
           imagePullPolicy: Always
           image: malikiah/php7.2-fpm:latest
+          command: ["/usr/sbin/php-fpm -F -R"]
           ports:
           -   containerPort: 9000
         
