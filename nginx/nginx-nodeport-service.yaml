@@ -3,6 +3,7 @@ kind: Service
 metadata:
     name: nginx-nodeport-service
 spec:
+    clusterIP: 10.109.238.1
     type: NodePort
     selector:
         app: nginx

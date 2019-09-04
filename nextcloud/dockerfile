@@ -4,17 +4,17 @@ LABEL Damian Malikiah McCarthy
 
 RUN echo "zchunk=false" >> /etc/dnf/dnf.conf
 
-#RUN dnf clean all && dnf -y update --releasever=29 && dnf -y install nginx git
+RUN dnf clean all && dnf -y update --releasever=29 && dnf -y install nginx
 
 #RUN dnf -y install php php-cli php-fpm php-mysqlnd php-zip php-devel php-gd php-mcrypt php-mbstring php-curl php-xml php-pear php-bcmath php-json
 
 RUN dnf -y install wget bzip2
 
-RUN wget https://download.nextcloud.com/server/releases/nextcloud-16.0.3.tar.bz2 && mkdir -p /var/www/html/nextcloud && tar -xvf ./nextcloud-16.0.3.tar.bz2 -C /var/www/html/nextcloud && chown -R nginx:nginx /var/www/html/nextcloud/nextcloud && mkdir -p /var/www/html/nextcloud/nextcloud-data
+ENTRYPOINT wget https://download.nextcloud.com/server/releases/nextcloud-16.0.3.tar.bz2 && mkdir -p /var/www/html/nextcloud && tar -xvf ./nextcloud-16.0.3.tar.bz2 -C /var/www/html/nextcloud && chown -R nginx:nginx /var/www/html/nextcloud/nextcloud && mkdir -p /var/www/html/nextcloud/nextcloud-data
 
 RUN rm -rf nextcloud-16.0.3.tar.bz2
 
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+#RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
 #RUN git init
 #RUN git config core.sparsecheckout true
@@ -29,7 +29,7 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 #RUN mkdir -p /var/run/php-fpm
 #RUN mkdir -p /var/run/php
 
-RUN sed -i 's/types_hash_max_size 2048;/types_hash_max_size 4096;/' /etc/nginx/nginx.conf
+#RUN sed -i 's/types_hash_max_size 2048;/types_hash_max_size 4096;/' /etc/nginx/nginx.conf
 
 #RUN sed -i 's:listen = /run/php-fpm/www.sock:listen = /var/run/php/php7.2-fpm.sock:' /etc/php-fpm.d/www.conf
 
@@ -37,7 +37,7 @@ RUN sed -i 's/types_hash_max_size 2048;/types_hash_max_size 4096;/' /etc/nginx/n
 #RUN rm -rf nginx .git
 
 
-EXPOSE 80
+#EXPOSE 80
 #CMD ["nginx"]
 
 
