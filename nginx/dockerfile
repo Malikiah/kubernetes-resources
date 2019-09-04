@@ -14,7 +14,7 @@ RUN echo nginx/conf.d > .git/info/sparse-checkout
 RUN git remote add origin -f https://github.com/Malikiah/kubernetes-resources.git
 RUN git pull origin master
 
-RUN mv ./nginx/conf.d/nginx-proxy.conf /etc/nginx/conf.d
+RUN mv ./nginx/conf.d/* /etc/nginx/conf.d
 
 RUN sed -i 's/types_hash_max_size 2048;/types_hash_max_size 4096;/' /etc/nginx/nginx.conf
 
