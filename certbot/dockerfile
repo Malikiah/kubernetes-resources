@@ -1,8 +1,0 @@
-FROM fedora:29
-
-VOLUME letsencrypt:/etc/letsencrypt/live
-
-RUN dnf -y certbot
-
-RUN certbot certonly -m damianmmccarthy@protonmail.com --standalone --preferred-challenges http -d malikiah.io
-

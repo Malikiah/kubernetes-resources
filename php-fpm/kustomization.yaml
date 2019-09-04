@@ -1,0 +1,3 @@
+resources:
+  - php-fpm-deployment.yml
+  - php-fpm-service.yaml

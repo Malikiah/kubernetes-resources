@@ -20,12 +20,12 @@ spec:
       containers:
       -   name: php-fpm
           imagePullPolicy: Always
-          image: malikiah/php7.2-fpm:latest
+          image: php:7.2.22-fpm
           ports:
           -   containerPort: 9000
         
           volumeMounts:
-          - mountPath: "/var/www/html/nextcloud"
+          - mountPath: "/var/www/html"
             name: nextcloud-persistent-volume
 
       volumes:

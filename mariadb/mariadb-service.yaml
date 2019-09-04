@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+
+spec:
+  selector:
+  app: mariadb
+  type: database
+  ports:
+  -  port: 3306
+
+ component: db

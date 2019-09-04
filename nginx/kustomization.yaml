@@ -1,0 +1,4 @@
+resources:
+  - nginx-deployment.yml
+  - nginx-service.yaml
+  - nginx-cloud.malikiah.io-configmap.yaml

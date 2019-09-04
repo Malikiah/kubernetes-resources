@@ -1,4 +1,4 @@
 resources:
-  - deployment.yml
-  - service.yaml
+  - redis-deployment.yml
+  - redis-service.yaml
   

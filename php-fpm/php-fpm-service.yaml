@@ -11,5 +11,5 @@ spec:
     app: php-fpm
   ports:
   -   name: php-fpm-port
-      protocol: TCP  
+      protocol: TCP
       port: 9000
