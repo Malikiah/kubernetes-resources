@@ -3,6 +3,8 @@ kind: PersistentVolumeClaim
 
 metadata:
   name: nextcloud-pvc
+  label:
+    type: local
 
 spec:
   storageClassName: manual
@@ -12,3 +14,4 @@ spec:
   resources:
     requests:
       storage: 500Gi
+
