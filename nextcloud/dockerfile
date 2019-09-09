@@ -1,0 +1,5 @@
+FROM nextcloud:latest
+
+LABEL Damian Malikiah McCarthy
+
+ENTRYPOINT chown -R nginx:nginx /var/www/html

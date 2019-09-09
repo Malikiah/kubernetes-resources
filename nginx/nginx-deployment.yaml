@@ -27,7 +27,7 @@ spec:
 
       containers:
       -  name: nginx
-        image: malikiah/nginx-proxy:latest
+        image: nginx:latest
         ports:
         - containerPort: 80
         livenessProbe:

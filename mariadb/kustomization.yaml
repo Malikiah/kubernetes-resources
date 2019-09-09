@@ -1,7 +1,0 @@
-resources:
-  - mariadb-deployment.yaml
-  - mariadb-service.yaml
-  - mariadb-secrets.yaml
-  - mariadb-persistent-volume.yaml
-  - mariadb-pvc.yaml
-  

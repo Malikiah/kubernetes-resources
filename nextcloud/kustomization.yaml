@@ -1,5 +1,0 @@
-resources:
-  - nextcloud_deployment.yaml
-  - nextcloud_service.yaml
-  - nextcloud_persistent-volume.yaml
-  - nextcloud_pvc.yaml
