@@ -1,0 +1,26 @@
+FROM fedora:29
+
+LABEL Damian Malikiah McCarthy
+
+RUN dnf -y clean all && dnf -y update --releasever=29
+
+RUN dnf -y install nginx git
+
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+
+RUN git init
+RUN git config core.sparsecheckout true
+RUN echo nginx/conf.d > .git/info/sparse-checkout
+RUN git remote add origin -f https://github.com/Malikiah/kubernetes-resources.git
+RUN git pull origin master
+
+RUN mv ./nginx/conf.d/* /etc/nginx/conf.d
+
+RUN sed -i 's/types_hash_max_size 2048;/types_hash_max_size 4096;/' /etc/nginx/nginx.conf
+
+RUN rm -rf nginx .git
+
+RUN mkdir -p /var/www/html/nextcloud && chown -R /var/www/html/nextcloud
+
+EXPOSE 80
+CMD ["nginx"]
