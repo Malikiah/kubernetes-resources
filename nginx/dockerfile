@@ -8,11 +8,12 @@ RUN dnf -y install nginx git
 
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
-RUN git init
-RUN git config core.sparsecheckout true
-RUN echo nginx/conf.d > .git/info/sparse-checkout
-RUN git remote add origin -f https://github.com/Malikiah/kubernetes-resources.git
-RUN git pull origin master
+#RUN git init
+#RUN git config core.sparsecheckout true
+#RUN echo nginx/conf.d/cloud.malikiah.io.conf > .git/info/sparse-checkout
+#RUN git remote add origin -f https://github.com/Malikiah/kubernetes-resources.git
+#RUN git pull origin master
+RUN git clone https://github.com/Malikiah/kubernetes-resources.git nginx/conf.d/
 
 RUN mv ./nginx/conf.d/* /etc/nginx/conf.d
 
