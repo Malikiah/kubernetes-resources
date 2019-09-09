@@ -45,7 +45,7 @@ spec:
 
           volumeMounts:
           - name: nextcloud-persistent-volume
-            mountPath: "/var/www/html"
+            mountPath: "/var/www/html/nextcloud"
           
           - name: cloud.malikiah.io-config
             mountPath: /etc/nginx/conf.d
