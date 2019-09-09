@@ -16,18 +16,9 @@ spec:
       labels:
         app: nginx
     spec:
-
-      volumes:
-      - name: cloud.malikiah.io-config
-        configMap:
-        name: nginx-config
-        items:
-        - key: config
-          path: cloud.malikiah.io.conf
-
       containers:
       -  name: nginx
-        image: nginx:latest
+        image: malikiah/nginx-proxy:latest
         ports:
         - containerPort: 80
         livenessProbe:
@@ -46,9 +37,6 @@ spec:
           volumeMounts:
           - name: nextcloud-persistent-volume
             mountPath: "/var/www/html/nextcloud"
-          
-          - name: cloud.malikiah.io-config
-            mountPath: /etc/nginx/conf.d
             
 
 
