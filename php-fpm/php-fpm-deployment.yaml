@@ -25,7 +25,7 @@ spec:
           -   containerPort: 9000
         
           volumeMounts:
-          - mountPath: "/var/www/html"
+          - mountPath: "/var/www/html/nextcloud"
             name: nextcloud-persistent-volume
 
       volumes:

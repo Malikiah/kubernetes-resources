@@ -21,7 +21,7 @@ RUN sed -i 's/types_hash_max_size 2048;/types_hash_max_size 4096;/' /etc/nginx/n
 
 RUN rm -rf nginx .git
 
-RUN mkdir -p /var/www/html/nextcloud && chown -R /var/www/html/nextcloud
+RUN mkdir -p /var/www/html/nextcloud && chown -R nginx:nginx /var/www/html/nextcloud
 
 EXPOSE 80
 CMD ["nginx"]
