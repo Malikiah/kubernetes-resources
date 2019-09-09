@@ -34,9 +34,9 @@ spec:
           initialDelaySeconds: 15
           periodSeconds: 3
 
-          volumeMounts:
-          - name: nextcloud-persistent-volume
-            mountPath: "/var/www/html/nextcloud"
+        volumeMounts:
+        - name: nextcloud-persistent-volume
+          mountPath: "/var/www/html/nextcloud"
             
 
 
