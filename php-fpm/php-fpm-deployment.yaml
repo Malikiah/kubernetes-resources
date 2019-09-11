@@ -22,7 +22,7 @@ spec:
           imagePullPolicy: Always
           image: php:7.2.22-fpm
           ports:
-          -   containerPort: 9000
+          - containerPort: 9000
         
           volumeMounts:
           - mountPath: "/var/www/html/nextcloud"
