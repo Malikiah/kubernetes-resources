@@ -28,7 +28,8 @@ spec:
 
       - name: nginx
         imagePullPolicy: Always
-        image: malikiah/nginx:latest
+        image: malikiah/nginx-proxy:latest
+        ports:
         - containerPort: 80
             
       volumes:
