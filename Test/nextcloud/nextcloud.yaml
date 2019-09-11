@@ -20,19 +20,15 @@ spec:
       containers:
       - name: nextcloud
         imagePullPolicy: Always
-        image: nextcloud:stable
+        image: nextcloud:stable-fpm-alpine
 
         volumeMounts:
         - mountPath: "/var/www/html"
           name: nextcloud-persistent-volume
 
-      - name: php-fpm
-        imagePullPolicy: Always
-        image: php:7.2.22-fpm
-
       - name: nginx
         imagePullPolicy: Always
-        image: malikiah/nginx-proxy:latest
+        image: malikiah/nginx:latest
         - containerPort: 80
             
       volumes:
