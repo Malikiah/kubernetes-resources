@@ -25,6 +25,14 @@ spec:
         volumeMounts:
         - mountPath: "/var/www/html"
           name: nextcloud-persistent-volume
+          
+      - name: php-fpm
+        imagePullPolicy: Always
+        image: php:7.2.22-fpm
+
+      - name: nginx
+        imagePullPolicy: Always
+        image: malikiah/nginx-proxy:latest
             
       volumes:
           - name: nextcloud-persistent-volume
