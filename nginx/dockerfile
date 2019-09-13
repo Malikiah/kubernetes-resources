@@ -1,4 +1,4 @@
-FROM nginx:alpine
+FROM nginx:latest
 
 LABEL Damian Malikiah McCarthy
 
@@ -18,3 +18,5 @@ RUN mv kubernetes-resources/nginx/conf.d/* /etc/nginx/conf.d
 RUN rm -rf kubernetes-resources
 
 #RUN mkdir -p /var/www/html/nextcloud && chown -R nginx:nginx /var/www/html/nextcloud
+EXPOSE 80
+CMD ["nginx"]
