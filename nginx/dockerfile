@@ -1,22 +1,23 @@
-FROM nginx:latest
+FROM fedora:29
 
 LABEL Damian Malikiah McCarthy
 
-RUN apt-get -y update && apt-get -y upgrade && apt-get -y install git
+RUN dnf -y clean all && dnf -y update --releasever=29
 
-#RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+RUN dnf -y install nginx git
 
-#RUN git init
-#RUN git config core.sparsecheckout true
-#RUN echo nginx/conf.d/ > .git/info/sparse-checkout
-#RUN git remote add origin -f https://github.com/Malikiah/kubernetes-resources.git
-#RUN git pull origin master
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+
 RUN git clone https://github.com/Malikiah/kubernetes-resources.git
 
 RUN mv kubernetes-resources/nginx/conf.d/* /etc/nginx/conf.d
 
 RUN rm -rf kubernetes-resources
 
-#RUN mkdir -p /var/www/html/nextcloud && chown -R nginx:nginx /var/www/html/nextcloud
+RUN mkdir -p /var/www/html/nextcloud && chown -R nginx:nginx /var/www/html/nextcloud
+
+RUN sed -i 's/types_hash_max_size 2048;/types_hash_max_size 4096;/' /etc/nginx/nginx.conf
+
+
 EXPOSE 80
 CMD ["nginx"]
