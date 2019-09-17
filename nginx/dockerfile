@@ -2,6 +2,8 @@ FROM fedora:29
 
 LABEL Damian Malikiah McCarthy
 
+RUN echo "zchunk=false" >> /etc/dnf/dnf.conf
+
 RUN dnf -y clean all && dnf -y update --releasever=29
 
 RUN dnf -y install nginx git
