@@ -16,7 +16,7 @@ RUN mv kubernetes-resources/nginx/conf.d/* /etc/nginx/conf.d
 
 RUN rm -rf kubernetes-resources
 
-RUN mkdir -p /var/www/html/nextcloud && chown -R nginx:nginx /var/www/html/nextcloud
+RUN mkdir -p /var/www/html/cloud.malikiah.io && chown -R nginx:nginx /var/www/html/cloud.malikiah.io
 
 RUN sed -i 's/types_hash_max_size 2048;/types_hash_max_size 4096;/' /etc/nginx/nginx.conf
 
