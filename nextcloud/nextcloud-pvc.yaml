@@ -3,8 +3,6 @@ kind: PersistentVolumeClaim
 
 metadata:
   name: nextcloud-pvc
-  label:
-    type: backend
 
 spec:
   storageClassName: manual
