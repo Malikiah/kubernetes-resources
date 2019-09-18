@@ -23,5 +23,14 @@ spec:
           image: php:7.2.22-fpm
           ports:
           - containerPort: 9000
+          volumeMounts:
+            - name: nextcloud-persistent-volume
+              mountPath: "/var/www/html/cloud.malikiah.io"
+              
 
+
+      volumes:
+      - name: nextcloud-persistent-volume
+        persistentVolumeClaim:
+          claimName: nextcloud-pvc
       restartPolicy: Always
