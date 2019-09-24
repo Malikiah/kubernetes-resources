@@ -24,6 +24,7 @@ spec:
         volumeMounts:
         - name: nextcloud-persistent-volume
           mountPath: "/var/www/html/cloud.malikiah.io"
+          
       - name: php-fpm
         image: malikiah/php7.2-fpm:latest
         ports:

@@ -9,9 +9,13 @@ RUN dnf clean all && dnf -y update --releasever=29 && dnf -y install php php-cli
 RUN mkdir -p /var/run/php-fpm
 RUN mkdir -p /var/run/php
 #RUN sed -i 's:listen = /run/php-fpm/www.sock:listen = /var/run/php/php7.2-fpm.sock:' /etc/php-fpm.d/www.conf
-RUN sed -i 's;listen = /run/php-fpm/www.sock;listen = 127.0.0.1:9000;' /etc/php-fpm.d/www.conf
+#RUN sed -i 's;listen = /run/php-fpm/www.sock;listen = 127.0.0.1:9000;' /etc/php-fpm.d/www.conf
 #RUN sed -i 's;listen.allowed_clients = 127.0.0.1;listen.allowed_clients = ;' /etc/php-fpm.d/www.conf
+RUN git clone https://github.com/Malikiah/kubernetes-resources.git
 
+RUN rsync -a kubernetes-resources/php-fpm/www.conf /etc/php-fpm.d/
+
+RUN rm -rf kubernetes-resources
 
 EXPOSE 9000
-ENTRYPOINT /usr/sbin/php-fpm -F -R
+ENTRYPOINT /usr/sbin/php-fpm -F
