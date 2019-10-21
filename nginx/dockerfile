@@ -8,7 +8,7 @@ RUN dnf -y clean all && dnf -y update --releasever=29
 
 RUN dnf -y install nginx git
 
-RUN dnf -y install policycoreutils-python-utils policycoreutils-python
+#RUN dnf -y install policycoreutils-python-utils policycoreutils-python
 
 RUN git clone https://github.com/Malikiah/kubernetes-resources.git
 
@@ -35,4 +35,4 @@ RUN sed -i 's/types_hash_max_size 2048;/types_hash_max_size 4096;/' /etc/nginx/n
 
 
 EXPOSE 80
-CMD ["nginx -s reload"]
+CMD ["nginx"]
