@@ -13,15 +13,14 @@ RUN dnf -y install policycoreutils-python-utils policycoreutils-python
 RUN git clone https://github.com/Malikiah/kubernetes-resources.git
 
 ## SElinux Configuration
-RUN setenforce 0
+#RUN nginx
+#RUN checkmodule -M -m kubernetes-resources/nginx/selinux_module/nginx.te -o nginx.mod
 
-RUN checkmodule -M -m ./kubernetes-resources/nginx/selinux_module/nginx.te -o nginx.mod
-
-RUN semodule_package -o nginx.pp -m nginx.mod
-
-RUN semodule -i nginx.pp
-
-RUN setenforce 1
+#RUN sestatus
+#RUN setenforce 0
+#RUN semodule_package -o nginx.pp -m nginx.mod
+#RUN ls
+#RUN semodule -i nginx.pp
 
 ## Nginx Configuration
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
@@ -36,4 +35,4 @@ RUN sed -i 's/types_hash_max_size 2048;/types_hash_max_size 4096;/' /etc/nginx/n
 
 
 EXPOSE 80
-CMD ["nginx"]
+CMD ["nginx -s reload"]
