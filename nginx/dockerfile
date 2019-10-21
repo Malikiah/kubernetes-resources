@@ -8,9 +8,23 @@ RUN dnf -y clean all && dnf -y update --releasever=29
 
 RUN dnf -y install nginx git
 
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+RUN dnf -y install policycoreutils-python-utils policycoreutils-python
 
 RUN git clone https://github.com/Malikiah/kubernetes-resources.git
+
+## SElinux Configuration
+RUN setenforce 0
+
+RUN checkmodule -M -m ./kubernetes-resources/nginx/selinux_module/nginx.te -o nginx.mod
+
+RUN semodule_package -o nginx.pp -m nginx.mod
+
+RUN semodule -i nginx.pp
+
+RUN setenforce 1
+
+## Nginx Configuration
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
 RUN mv kubernetes-resources/nginx/conf.d/* /etc/nginx/conf.d
 
