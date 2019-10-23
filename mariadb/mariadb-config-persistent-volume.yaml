@@ -13,5 +13,9 @@ spec:
   accessModes:
     - ReadWriteOnce
 
+  claimRef:
+    namespace: default
+    name: mariadb-config-pvc
+
   hostPath:
     path: "/etc/mysql"

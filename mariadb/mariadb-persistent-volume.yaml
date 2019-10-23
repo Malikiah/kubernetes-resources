@@ -13,5 +13,9 @@ spec:
   accessModes:
     - ReadWriteOnce
 
+  claimRef:
+    namespace: default
+    name: mariadb-pvc
+
   hostPath:
     path: "/var/lib/mysql"
