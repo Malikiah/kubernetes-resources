@@ -8,10 +8,10 @@ metadata:
 spec:
   storageClassName: manual
   capacity:
-    storage: 100Gi
+    storage: 10Gi
 
   accessModes:
     - ReadWriteOnce
 
   hostPath:
-    path: "/var/lib/mysql"
+    path: "/etc/mysql"

@@ -37,18 +37,26 @@ spec:
             - name: MARIADB_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  key: password
+                  key: root_password
                   name: mariadb-secrets
           
           volumeMounts:
             - mountPath: "/var/lib/mysql"
               name: mariadb-persistent-volume
 
+            - mountPath: "/etc/mysql"
+              name: mariadb-config-persistent-volume
+
+
           
       volumes:
           - name: mariadb-persistent-volume
             persistentVolumeClaim:
               claimName: mariadb-pvc
+
+          - name: mariadb-config-persistent-volume
+            persistentVolumeClaim:
+              claimName: mariadb-config-pvc
 
       restartPolicy: Always
         

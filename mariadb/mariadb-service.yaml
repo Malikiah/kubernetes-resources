@@ -1,11 +1,17 @@
 apiVersion: v1
 kind: Service
 
-spec:
-  selector:
-  app: mariadb
-  type: database
-  ports:
-  -  port: 3306
+metadata:
+  name: mariadb-service
 
- component: db
+spec:
+  clusterIP: 10.109.238.2
+  type: ClusterIP
+  selector:
+    app: mariadb
+    type: database
+  ports:
+  -   name: mariadb-port
+      protocol: TCP
+      port: 3306
+  component: db
