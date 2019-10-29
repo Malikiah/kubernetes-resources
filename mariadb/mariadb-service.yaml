@@ -14,4 +14,3 @@ spec:
   -   name: mariadb-port
       protocol: TCP
       port: 3306
-  component: db

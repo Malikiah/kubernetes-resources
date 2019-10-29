@@ -33,12 +33,12 @@ spec:
             - --binlog-format=ROW
             - --max-connections=1000
 
-          #env:
-          #  - name: MARIADB_ROOT_PASSWORD
-          #    valueFrom:
-          #      secretKeyRef:
-          #        key: root_password
-          #        name: mariadb-secrets
+          env:
+            - name: MARIADB_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: root_password
+                  name: mariadb-secrets
           
           volumeMounts:
             - mountPath: "/var/lib/mysql"

@@ -33,6 +33,7 @@ RUN mkdir -p /var/www/html/cloud.malikiah.io && chown -R nginx:nginx /var/www/ht
 
 RUN sed -i 's/types_hash_max_size 2048;/types_hash_max_size 4096;/' /etc/nginx/nginx.conf
 
+RUN chown -R nginx:nginx /var/www/html
 
 EXPOSE 80
 CMD ["nginx"]
