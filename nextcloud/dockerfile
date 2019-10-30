@@ -1,0 +1,7 @@
+FROM nextcloud:stable
+
+LABEL Damian Malikiah McCarthy
+
+RUN mkdir -p nextcloud
+RUN mv ./* 
+RUN mv ./nextcloud/data ./
