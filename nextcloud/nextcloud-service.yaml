@@ -5,11 +5,7 @@ metadata:
   name: nextcloud-service
 
 spec:
-  clusterIP: 10.109.238.3
+  clusterIP: 10.109.238.10
   type: ClusterIP
   selector:
     app: nextcloud
-  ports:
-  -   name: nextcloud-port
-      targetPort: 80
-      port: 80

@@ -1,0 +1,5 @@
+FROM fedora:29
+
+LABEL Damian Malikiah McCarthy
+
+CMD ["systemctl start mariadb"]
