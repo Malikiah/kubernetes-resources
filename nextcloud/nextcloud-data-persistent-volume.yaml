@@ -15,4 +15,4 @@ spec:
     - ReadWriteOnce
 
   hostPath:
-    path: "/var/www/html/cloud.malikiah.io/data"
+    path: "/var/www/html/data"
