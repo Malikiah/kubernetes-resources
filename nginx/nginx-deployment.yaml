@@ -23,7 +23,10 @@ spec:
         - containerPort: 80
         volumeMounts:
         - name: nextcloud-persistent-volume
-          mountPath: "/var/www/html/cloud.malikiah.io"
+          mountPath: "/var/www/html/cloud.malikiah.io/nextcloud"
+          
+        - name: nextcloud-data-persistent-volume
+          mountPath: "/var/www/html/cloud.malikiah.io/data"
           
       - name: php-fpm
         image: malikiah1/php7.2-fpm:latest
@@ -31,7 +34,7 @@ spec:
         - containerPort: 9000
         volumeMounts:
         - name: nextcloud-persistent-volume
-          mountPath: "/var/www/html/cloud.malikiah.io"
+          mountPath: "/var/www/html/cloud.malikiah.io/nextcloud"
             
 
 
@@ -39,5 +42,9 @@ spec:
       - name: nextcloud-persistent-volume
         persistentVolumeClaim:
           claimName: nextcloud-pvc
+
+      - name: nextcloud-data-persistent-volume
+        persistentVolumeClaim:
+          claimName: nextcloud-data-pvc
               
       restartPolicy: Always
