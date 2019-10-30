@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: malikiah/nginx:latest
+        image: malikiah1/nginx:latest
         ports:
         - containerPort: 80
         volumeMounts:
@@ -26,7 +26,7 @@ spec:
           mountPath: "/var/www/html/cloud.malikiah.io"
           
       - name: php-fpm
-        image: malikiah/php7.2-fpm:latest
+        image: malikiah1/php7.2-fpm:latest
         ports:
         - containerPort: 9000
         volumeMounts:
