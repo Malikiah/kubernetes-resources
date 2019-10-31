@@ -3,5 +3,5 @@ FROM nextcloud:stable
 LABEL Damian Malikiah McCarthy
 
 RUN mkdir -p nextcloud
-RUN mv ./* nextcloud
+RUN mv ./* ./nextcloud
 RUN mv ./nextcloud/data ./
