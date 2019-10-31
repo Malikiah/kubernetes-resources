@@ -24,9 +24,7 @@ spec:
         volumeMounts:
         - name: nextcloud-persistent-volume
           mountPath: "/var/www/html/cloud.malikiah.io"
-          
-        - name: nextcloud-data-persistent-volume
-          mountPath: "/var/www/html/cloud.malikiah.io"
+  
           
       - name: php-fpm
         image: malikiah1/php7.2-fpm:latest
@@ -42,9 +40,5 @@ spec:
       - name: nextcloud-persistent-volume
         persistentVolumeClaim:
           claimName: nextcloud-pvc
-
-      - name: nextcloud-data-persistent-volume
-        persistentVolumeClaim:
-          claimName: nextcloud-data-pvc
               
       restartPolicy: Always
