@@ -23,10 +23,10 @@ spec:
         - containerPort: 80
         volumeMounts:
         - name: nextcloud-persistent-volume
-          mountPath: "/var/www/html/cloud.malikiah.io/nextcloud"
+          mountPath: "/var/www/html/cloud.malikiah.io"
           
         - name: nextcloud-data-persistent-volume
-          mountPath: "/var/www/html/cloud.malikiah.io/data"
+          mountPath: "/var/www/html/cloud.malikiah.io"
           
       - name: php-fpm
         image: malikiah1/php7.2-fpm:latest
@@ -34,7 +34,7 @@ spec:
         - containerPort: 9000
         volumeMounts:
         - name: nextcloud-persistent-volume
-          mountPath: "/var/www/html/cloud.malikiah.io/nextcloud"
+          mountPath: "/var/www/html/cloud.malikiah.io"
             
 
 
