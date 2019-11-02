@@ -2,6 +2,6 @@ FROM fedora:29
 
 LABEL Damian Malikiah McCarthy
 
-RUN sed -i 's/#bind-address=0.0.0.0/bind-address=0.0.0.0/' /etc/my.cnf.d/mariadb-server.cnf
+RUN sed -i 's/#bind-address=0.0.0.0/bind-address=0.0.0.0/' /etc/my.cnf
 
 CMD ["systemctl start mariadb"]
