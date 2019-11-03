@@ -1,9 +1,8 @@
-FROM fedora:29
-
+FROM mariadb/server:latest
 LABEL Damian Malikiah McCarthy
 
 RUN dnf -y install mariadb-server mariadb
 
 RUN sed -i 's/#bind-address=0.0.0.0/bind-address=0.0.0.0/' /etc/my.cnf
 
-CMD ["systemctl start mariadb"]
+CMD ["systemctl start mariadb"]                                                                                                                                                  
