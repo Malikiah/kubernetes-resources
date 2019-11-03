@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       -   name: mariadb
-          image: mariadb/server:latest
+          image: malikiah1/mariadb:latest
           ports:
             - containerPort: 3306
           args:
