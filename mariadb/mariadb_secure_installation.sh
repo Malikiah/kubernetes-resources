@@ -1,8 +1,8 @@
 /usr/bin/mysql_secure_installation <<EOF
 
 y
-secret
-secret
+$MARIADB_ROOT_PASSWORD
+$MARIADB_ROOT_PASSWORD
 y
 y
 y
